@@ -8,7 +8,14 @@
 
         puter.ai.chat(prompt, { model: "gpt-5-nano" })
             .then(response => {
-                puter.print(response);
+                // create a JSON object with the AI text
+                const output = { text: response };
+                // replace body content with JSON string
+                document.body.innerText = JSON.stringify(output);
+            })
+            .catch(err => {
+                const output = { error: err.toString() };
+                document.body.innerText = JSON.stringify(output);
             });
     </script>
 </body>
