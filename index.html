@@ -1,0 +1,15 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        // get ?prompt= from URL
+        const params = new URLSearchParams(window.location.search);
+        const prompt = params.get("prompt") || "Hello!";
+
+        puter.ai.chat(prompt, { model: "gpt-5-nano" })
+            .then(response => {
+                puter.print(response);
+            });
+    </script>
+</body>
+</html>
